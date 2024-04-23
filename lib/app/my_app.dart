@@ -10,6 +10,7 @@ import 'package:nxt_test_case/core/extras/services/app-localization-service/app_
 import 'package:nxt_test_case/core/extras/services/app-navigation-service/app_navigation_service.dart';
 import 'package:nxt_test_case/core/extras/services/app-navigation-service/app_route_names.dart';
 import 'package:nxt_test_case/core/extras/services/app-navigation-service/app_router.dart';
+import 'package:nxt_test_case/core/layers/presentation/pages/reservations-list-page/reservation_list_page_view.dart';
 import 'package:nxt_test_case/out-buildings/dependency_injector.dart';
 
 class MyApplication extends StatelessWidget {
@@ -34,7 +35,7 @@ class MyApplication extends StatelessWidget {
         },
         navigatorKey: serviceLocator<AppNavigationService>().navKey,
         navigatorObservers: _navigationObservers,
-        initialRoute: AppRouteNames.reservationsListRoute,
+        initialRoute: ReservationsListPageView.routeName,
         onGenerateInitialRoutes: (_,) => [AppRouter.onGenerateRoute(RouteSettings(name: _,),)!,],
         routes: const <String, WidgetBuilder>{},
         onGenerateRoute: AppRouter.onGenerateRoute,
