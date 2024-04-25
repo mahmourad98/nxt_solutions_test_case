@@ -4,8 +4,7 @@ This is a test case for the NXT team.
 The app is a simple app that fetches data from a REST API and displays it in a list.
 
 I provided a link to download the APK file of the app:
-(https://www.dropbox.com/scl/fi/94kxju2o7zo5xtfu5201e/nxt_solutions_test_case_app_release.apk?rlkey=0vje6ni5tklsj8rf9iq50o8jr&st=d6l399tq&dl=0)
-
+https://www.dropbox.com/scl/fi/k6ik2suezn3u4ikjw246b/nxt-solutions-app-release.apk?rlkey=1kc911cfmuawp4ze29e96uf4p&st=iaaspt8h&dl=0
 screenshots of the app:
 (https://www.dropbox.com/scl/fi/ac89ivut9i0sx5qkse2o4/Screenrecorder-2024-04-25-03-15-45-337.mp4?rlkey=fj7i3ybehfcrbesyug779i5fx&st=59gsnppg&dl=0)
 
