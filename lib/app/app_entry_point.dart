@@ -14,10 +14,7 @@ class AppEntryPoint extends StatelessWidget {
       viewModelBuilder: () => AppViewController(),
       onViewModelReady: (AppViewController viewModel,) => viewModel.onModelReady(),
       onDispose: (AppViewController viewModel,) => viewModel.onPreDispose(),
-      builder: (BuildContext buildContext, AppViewController viewModel, __,) => PopScope(
-        onPopInvoked: (bool canPop,) => {},
-        child: MyApplication(),
-      ),
+      builder: (BuildContext buildContext, AppViewController viewModel, __,) => MyApplication(),
     );
   }
 }

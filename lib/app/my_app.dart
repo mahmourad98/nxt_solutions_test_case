@@ -8,30 +8,31 @@ import 'package:nxt_test_case/config/supported_languages.dart';
 import 'package:nxt_test_case/core/extras/services/app-localization-service/app_localization_delegate.dart';
 import 'package:nxt_test_case/core/extras/services/app-localization-service/app_localization_service.dart';
 import 'package:nxt_test_case/core/extras/services/app-navigation-service/app_navigation_service.dart';
-import 'package:nxt_test_case/core/extras/services/app-navigation-service/app_route_names.dart';
 import 'package:nxt_test_case/core/extras/services/app-navigation-service/app_router.dart';
+import 'package:nxt_test_case/core/extras/services/app_theme_service.dart';
 import 'package:nxt_test_case/core/layers/presentation/pages/reservations-list-page/reservation_list_page_view.dart';
 import 'package:nxt_test_case/out-buildings/dependency_injector.dart';
+import 'package:stacked/stacked.dart';
 
-class MyApplication extends StatelessWidget {
+import 'app_view_controller.dart';
+
+class MyApplication extends ViewModelWidget<AppViewController> {
   static const _key = ValueKey("my-app",);
   static const _app = MyApplication._(key: _key,);
   const MyApplication._({super.key,});
   factory MyApplication() => _app;
-  @override Widget build(BuildContext context,) {
+
+  @override bool get reactive => true;
+  @override Widget build(BuildContext context, AppViewController viewModel,) {
     if(Platform.isAndroid) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: AppConfigs.APP_NAME,
-        //TODO: Add theme
-        /*theme: AppTheme.isDarkTheme ? AppTheme.appThemeDark : AppTheme.appThemeLight,
-        themeMode: AppTheme.isDarkTheme ? ThemeMode.dark : ThemeMode.light,*/
+        theme: serviceLocator<AppThemeService>().currentTheme,
+        themeMode: serviceLocator<AppThemeService>().isDark ? ThemeMode.dark : ThemeMode.light,
         builder: (BuildContext buildContext, Widget? childWidget,) {
           _setDeviceOrientation();
-          return Theme(
-            data: ThemeData(fontFamily: _fontFamily,),
-            child: childWidget!,
-          );
+          return childWidget!;
         },
         navigatorKey: serviceLocator<AppNavigationService>().navKey,
         navigatorObservers: _navigationObservers,
@@ -52,10 +53,7 @@ class MyApplication extends StatelessWidget {
         title: AppConfigs.APP_NAME,
         builder: (BuildContext buildContext, Widget? childWidget,) {
           _setDeviceOrientation();
-          return Theme(
-            data: ThemeData(fontFamily: _fontFamily,),
-            child: childWidget!,
-          );
+          return childWidget!;
         },
         navigatorKey: serviceLocator<AppNavigationService>().navKey,
         navigatorObservers: _navigationObservers,
